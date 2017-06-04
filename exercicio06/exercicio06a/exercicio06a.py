@@ -22,7 +22,7 @@ from matplotlib import pyplot as plt
 #------------------------------------------------------------------------------#
 def calculaDCC(v):
   d = []
-  for i in xrange(1,len(v)):
+  for i in range(1,len(v)):
     if (v[i] >= v[i-1]):
       d.append(v[i] - v[i-1])
     else:
@@ -38,7 +38,7 @@ def calculaDCC(v):
 #------------------------------------------------------------------------------#
 def euclidianDist(v1,v2):
   p = 0
-  for i in xrange (0,len(v1)):
+  for i in range (0,len(v1)):
     p += (v1[i] - v2[i])**2
   q = math.sqrt(p)
   return q
@@ -65,7 +65,7 @@ def normalizaVetor(v):
 #------------------------------------------------------------------------------#
 def normalizaVetor2(v):
   n = []
-  for x in xrange(0,8):
+  for x in range(0,8):
     n.append(float(v.count(x))/float(len(v)))
   return n
 
@@ -102,7 +102,7 @@ def chainCode(p1,p2):
 #------------------------------------------------------------------------------#
 def calculaCC(contorno):
   cc = []
-  for i in xrange(1,len(contorno)):
+  for i in range(1,len(contorno)):
     cc.append(chainCode(contorno[i-1],contorno[i]))
   return cc
 
@@ -154,13 +154,13 @@ def calculaDiferencaCC(nomeImagem):
   limite2 = 0.2 
 
   # Para cada conjunto de contornos (objetos)
-  for i in xrange(0,len(contours)):
+  for i in range(0,len(contours)):
     cnt = contours[i]
     cntImg = img.copy()
     cntImg2 = img.copy()
 
     # Calcula a distancia (diferença) entre cada objeto da imagem
-    for j in xrange(0,len(contours)):
+    for j in range(0,len(contours)):
       # Primeiro através dos chain codes
       if (euclidianDist(normalizedCC[i],normalizedCC[j]) <= limite):
         cv2.drawContours(cntImg, [contours[j]], 0, (255,0,0),3)
@@ -177,11 +177,11 @@ def calculaDiferencaCC(nomeImagem):
 # Função principal                                                             #
 #------------------------------------------------------------------------------#
 if (__name__ == '__main__'):
- nomeImagem = raw_input("Digite o nome da imagem: ")
+ nomeImagem = input("Digite o nome da imagem: ")
  
  init = time.time()
  calculaDiferencaCC(nomeImagem)
  end = time.time()
 
- print "Tempo total de execução: " + str(end-init)
+ print("Tempo total de execução: " + str(end-init))
 

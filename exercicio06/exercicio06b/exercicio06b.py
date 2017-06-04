@@ -153,16 +153,16 @@ def celulas(nomeImagem):
       count += 1
   
   # Imprime a lista de areas  
-  for l in xrange(0,len(listOfAreas)):
-    print "A célula número " + str(l) + " tem area: " + str(listOfAreas[l]) 
-  print "Total de células: " + str(len(listOfAreas))
+  for l in range(0,len(listOfAreas)):
+    print("A célula número " + str(l) + " tem area: " + str(listOfAreas[l]))
+  print("Total de células: " + str(len(listOfAreas)))
 
   return imgThresholdCopy3
 #------------------------------------------------------------------------------#
 # Função principal                                                             #
 #------------------------------------------------------------------------------#
 if (__name__ == '__main__'):
-  nomeImagem = raw_input("Digite o nome da imagem: ")
+  nomeImagem = input("Digite o nome da imagem: ")
  
   init = time.time()
   img = celulas(nomeImagem)

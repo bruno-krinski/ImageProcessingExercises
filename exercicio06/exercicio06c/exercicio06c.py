@@ -33,7 +33,7 @@ def contaLinhasImagem(nomeImagem):
  
   # Conta a quantidade de pixels brancos em cada linha da imagem
   numUns = []
-  for y in xrange(0,axisY):
+  for y in range(0,axisY):
     numUns.append(axisX - cv2.countNonZero(nImg[y,:]))
   
   # Realiza o plot do histograma com o númedo de pixels brancos em cada 
@@ -51,7 +51,7 @@ def contaLinhasImagem(nomeImagem):
   marca = False
   numLinhas = 0
   # Para cada linha do histograma
-  for i in xrange(0,len(numUns)):
+  for i in range(0,len(numUns)):
 
     # Verifica se a quantidade de uns é maior que o limite e se ainda não 
     # encontrou nenhuma linha
@@ -82,15 +82,15 @@ def contaLinhasImagem(nomeImagem):
 if (__name__ == '__main__'):
  
  # Realiza a leitura do nome do arquivo de imagem a ser aberto
- nomeImagem = raw_input("Digite o nome da imagem: ")
+ nomeImagem = input("Digite o nome da imagem: ")
  
  # Chama a função do programa calculando seu tempo de execução
  init = time.time()
  n = contaLinhasImagem(nomeImagem)
  end = time.time()
  
- print "Total de linhas na imagem: " + str(n)
- print "Tempo total de execução: " + str(end-init)
+ print("Total de linhas na imagem: " + str(n))
+ print("Tempo total de execução: " + str(end-init))
  
  plt.show()
 
